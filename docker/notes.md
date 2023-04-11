@@ -14,3 +14,7 @@ To open a container in another terminal you can search the ID of the running con
 from there you will have the idea and then you can enter
 
 `docker exec -it ID bash` 
+
+to get display as well you need to run 
+
+`docker run -it --name <Container name> -e DISPLAY=host.docker.internal:0.0 -it <Image name>` 
