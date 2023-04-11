@@ -1,5 +1,6 @@
 # Images to build from
 FROM osrf/ros:humble-desktop
+#FROM osrf/ros:humble-desktop-full
 
 # nvidia-container-runtime
 ENV NVIDIA_VISIBLE_DEVICES \
@@ -22,6 +23,12 @@ RUN  apt install -y python3-colcon-common-extensions \
     
 RUN source /opt/ros/humble/setup.bash \
  && apt-get install -y ros-humble-joint-state-publisher \
- && apt-get install -y ros-humble-gazebo-ros
+ && apt-get install -y ros-humble-gazebo-ros 
+
+RUN apt-get install ~nros-humble-rqt*
+
+RUN echo "source /opt/ros/humble/setup.bash" >> ~/.bashrc
+RUN pip install opencv-python
+RUN pip install pygame
 
 RUN echo "ALL DONE !"
