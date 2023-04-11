@@ -19,13 +19,14 @@ RUN source /opt/ros/humble/setup.bash \
 
 RUN  apt install -y python3-colcon-common-extensions \
     && apt-get install -y ros-humble-joint-state-publisher-gui \
-    && apt-get install -y ros-humble-gazebo-plugins
+    && apt-get install -y ros-humble-gazebo-plugins \
+    && apt-get install -y python3-colcon-mixin \
+    && apt-get install -y python3-vcstool
     
 RUN source /opt/ros/humble/setup.bash \
  && apt-get install -y ros-humble-joint-state-publisher \
- && apt-get install -y ros-humble-gazebo-ros 
-
-RUN apt-get install ~nros-humble-rqt*
+ && apt-get install -y ros-humble-gazebo-ros \
+ && apt-get install -y ~nros-humble-rqt*
 
 RUN echo "source /opt/ros/humble/setup.bash" >> ~/.bashrc
 RUN pip install opencv-python
